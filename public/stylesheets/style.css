@@ -1,0 +1,26 @@
+body {
+    padding-left: 20px;
+	padding-right: 20px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  a {
+    color: #00B7FF;
+  }
+  a.primaryColor{
+    color: #02afee
+  }
+  
+  #primary {
+    color: #02afee;
+  }
+  #primaryLight {
+    color: #66e1ff;
+  }
+  #primaryDark {
+    color: #0080bb;
+  }
+  #white {
+    color: white;
+  }
+  
