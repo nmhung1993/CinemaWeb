@@ -1,5 +1,9 @@
+<div class="my-top-header-text">
+        <h1 class="my-title" href="http://localhost:3000"> Project Cinema </h1>
+</div>
+
 <!-- NAV BAR -->
-<nav class="navbar navbar-default navbar-custom" style="background-color:transparent">
+<nav class="navbar navbar-default navbar-custom" style="border-color: transparent;background-color:transparent">
     <div class="container-fluid my-containter-full">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header" style="margin:auto">
@@ -15,19 +19,19 @@
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1" style="margin-left:-25px">
+      <div class="collapse navbar-collapse" id="navbar-collapse-1" style="margin-left:-30px;margin-right: -30px">
         <ul class="nav navbar-nav nav-left" style="margin:auto;align-content: center;text-align: center">
-            <li class="li-icon" ng-show="checkPageIndex()" >
+            <li class="li-icon my-nav-btn" ng-show="checkPageIndex()" >
                 <a href="http://localhost:3000" id="white">
-                    <i class="fa fa-home" aria-hidden="true" style="font-size:20px" ></i>
+                    <i class="fa fa-home" aria-hidden="true" style="font-size:25px" ></i>
                 </a>
             </li>  
-          <li class="li-icon" ng-show="checkPageIndex()">
+          <li class="li-icon my-nav-btn" ng-show="checkPageIndex()">
                 <a href="" onclick="toggleInputSearch()" id="white">
-                    <i class="fa fa-search" aria-hidden="true" style="font-size:20px"></i>
+                    <i class="fa fa-search" aria-hidden="true" style="font-size:25px"></i>
                 </a>
             </li>
-            <li class="li-input-search" ng-show="checkPageIndex()" style="align-content:center;margin-top: 10px" >
+            <li class="li-input-search" ng-show="checkPageIndex()" style="align-content:center;margin: 15px" >
                 <input type="text" class="form-control input-search" id="input-search" placeholder="Enter your keyword..." ng-model="search" style="color:#02afee">
             </li>
             <li class="li-icon">
@@ -42,20 +46,20 @@
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li>
+        <ul class="nav navbar-nav navbar-right" style="margin:auto;align-content: center; text-align: center">
+            <li class="li-icon my-nav-btn">
                 <a href="/upload" id="white"><!-- ng-cloak -->
-                    <i class="fa fa-upload fa-lg" aria-hidden="true" style="font-size:20px"></i> Upload film </a>
+                    <i class="fa fa-upload fa-lg" aria-hidden="true" style="font-size:30px"></i> Upload film </a>
             </li>
 
-            <li ng-hide="userLogined" ><!-- ng-cloak -->
+            <li ng-hide="userLogined" class="li-icon my-nav-btn"><!-- ng-cloak -->
                 <a href="#" data-toggle="modal" data-target="#modalLogin" id="white">
-                    <i class="fas fa-sign-in-alt" aria-hidden="true" style="font-size:20px"></i> Login </a>
+                    <i class="fas fa-sign-in-alt" aria-hidden="true" style="font-size:25px"></i> Login </a>
             </li>
 
-            <li ng-hide="userLogined" ><!-- ng-cloak -->
+            <li ng-hide="userLogined" class="li-icon my-nav-btn"><!-- ng-cloak -->
                 <a href="#" data-toggle="modal" data-target="#modalSignUp" id="white">
-                    <i class="fa fa-user-plus fa-lg" aria-hidden="true" style="font-size:20px"></i> Register </a>
+                    <i class="fa fa-user-plus fa-lg" aria-hidden="true" style="font-size:30px"></i> Register </a>
             </li>
 
             <!-- Dropdown menu  -->
