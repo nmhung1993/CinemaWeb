@@ -13,7 +13,7 @@
     height: 90%;
     border-radius: 20px;
     margin-bottom: 20px;
-    opacity: 0.7;
+    opacity: 1;
     /* object-fit: cover; */
 }
 
@@ -43,14 +43,27 @@
     font-size: 1.1em;
     border-radius: 10px;
     padding: 8px 20px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #02afee
 }
+
+.btn-container {
+    text-align:center;
+  }
 
 .my-btn:hover {
     transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -webkit-transition-duration: 0.3s;
+    background-color: #0080bb
+}
+
+.my-upload-btn {
+    margin-top: 20px;
+    text-align:center;
+    padding: 10px;
 }
 
 .my-bot-form {
@@ -64,7 +77,7 @@
 
 .my-form-film .form-group h4 {
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 .my-select-film {

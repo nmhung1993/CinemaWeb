@@ -6,6 +6,7 @@
   }
   
   a {
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: #00B7FF;
   }
   a.primaryColor{
@@ -24,3 +25,31 @@
   #white {
     color: white;
   }
+
+  .my-title {
+    font-size: 60px;
+    color: white;
+    margin: 20px;
+    margin-top: 40px
+  }
+  .my-nav-btn {
+    font-size: 1.1em;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent
+  }
+
+  .btn-container {
+    text-align:center;
+  }
+
+  .my-nav-btn:hover {
+    transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    background-color: #0080bb
+  }
+
