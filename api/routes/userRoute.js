@@ -20,6 +20,21 @@ router.post('/signup', async function (req, res) {
   }
 });
 
+router.put('/signin', async function (req, res) {
+  try {
+    let result = await userController.loginUser(req.body)
+    if (result.result) {
+      var token = jwt.encode(req.body, JWT_SECRET)
+      return res.json({token: token, username: result.username})
+    } else {
+      var errorMessage = 'Thông tin bạn nhập vào không đúng'
+      return res.send({errorMessage: errorMessage})
+    }
+  } catch (e) {
+    console.log(e)
+    return res.send(e)
+  }
+})
 router.get('/:userID', async function (req, res) {
   var userID = req.params.userID;
 

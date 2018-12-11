@@ -8,6 +8,7 @@ var userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     userName: { type: String, required: true },
     password: { type: String, required: true },
+    avatarURL: { type: String },
 	dateAdded : { type: Date, default: Date.now() }
 })
 
