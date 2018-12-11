@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+const responseStatus = require('../configs/responseStatus')
 var bcrypt = require('bcrypt')
 
 function validateEmail (email) {
@@ -9,15 +10,14 @@ function validateEmail (email) {
 
 const createUser = async function (data) {
     try{
-        const checkForm = validateEmail(data.email)
-        if (checkForm) {
-            const checkUser = await User.findOne({email: data.email})
-            if (checkUser) {
-                console.log('Email đã được đăng kí!')
-                const result = false; const errorMessage = 'Email đã được đăng kí!'
+        const validEmail = validateEmail(data.email)
+        if (validEmail) {
+            const authenticated = await User.findOne({email: data.email})
+            if (authenticated) {
+                const result = false; const errorMessage = responseStatus.WRONG_EMAIL_OR_PASSWORD
+                console.log(errorMessage)
                 return {result: result, errorMessage: errorMessage}
             } else {
-                // Tạo user mới
                 let user = new User({
                 userName: data.userName,
                 password: data.password,
@@ -30,8 +30,8 @@ const createUser = async function (data) {
                 return {result: result, id: user._id}
             }
         } else {
-        console.log('Email nhập vào không đúng')
-        const result = false; const errorMessage = 'Email nhập vào không đúng'
+        const result = false; const errorMessage = responseStatus.WRONG_EMAIL_OR_PASSWORD
+        console.log(errorMessage)
         return {result: result, errorMessage: errorMessage}
         }
     }catch(e){ 
@@ -40,26 +40,24 @@ const createUser = async function (data) {
   }
 
 var loginUser = async function (data) {
-    var email = {email: data.email}
-    var password = data.password
-    const authenticated = await User.findOne(email)
-    if (!authenticated) {
-      console.log('Email không tồn tại !')
-    }
-    let result = bcrypt.compareSync(password, authenticated.password)
-    return {result: result, userName: authenticated}
-  }
-
-const getUser = async function (userID) {
-    try {
-      return await User.findById(userID)
+    try{
+        var email = {email: data.email}
+        var password = data.password
+        const authenticated = await User.findOne(email)
+        if (authenticated) {
+            let result = bcrypt.compareSync(password, authenticated.password)
+            return {result: result, userName: authenticated}
+        }else{
+            const result = false; const errorMessage = responseStatus.WRONG_EMAIL_OR_PASSWORD
+            console.log(errorMessage)
+            return {result: result, errorMessage: errorMessage}
+        }
     } catch (e) {
-      throw e
+        throw e
     }
-}
+  }
 
 module.exports = {
     createUser: createUser,
-    loginUser: loginUser,
-    getUser: getUser
+    loginUser: loginUser
 }

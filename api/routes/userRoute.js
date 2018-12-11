@@ -27,8 +27,7 @@ router.put('/signin', async function (req, res) {
       var token = jwt.encode(req.body, JWT_SECRET)
       return res.json({token: token, username: result.username})
     } else {
-      var errorMessage = 'Thông tin bạn nhập vào không đúng'
-      return res.send({errorMessage: errorMessage})
+      return res.send({errorMessage: result.errorMessage})
     }
   } catch (e) {
     console.log(e)
