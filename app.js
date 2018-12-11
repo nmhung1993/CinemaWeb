@@ -4,8 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('./api/models/userModel');
+const db = require('./utils/db');
+// var mongoose = require('mongoose');
+// var mongoDB = 'mongodb://admin-cinema:111111a@ds121624.mlab.com:21624/cinema'
+// mongoose.connect(mongoDB, { useNewUrlParser: true })
+// var db = mongoose.connection
+// db.on('error', console.error.bind(console, 'MongoDB connection error: '))
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var userRouter = require('./api/routes/userRoute');
 
 var app = express();
 
@@ -22,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/film', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/user', userRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
